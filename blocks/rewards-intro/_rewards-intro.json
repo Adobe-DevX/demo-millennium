@@ -1,0 +1,65 @@
+{
+  "definitions": [
+    {
+      "title": "Rewards Intro",
+      "id": "rewards-intro",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Rewards Intro",
+              "model": "rewards-intro"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "rewards-intro",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "logo",
+          "label": "Logo",
+          "description": "MyMillennium logo (SVG or image from AEM Assets)",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "logoAlt",
+          "label": "Logo alt text",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "actions",
+          "value": "",
+          "label": "Action links",
+          "description": "First link is styled as the outlined JOIN NOW button",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "bookNow",
+          "value": "",
+          "label": "Book now tab",
+          "description": "Title link on the first line, subtitle on the second",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

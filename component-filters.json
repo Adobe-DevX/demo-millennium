@@ -16,6 +16,8 @@
       "cards",
       "columns",
       "video",
+      "rewards-intro",
+      "feature-strip",
       "fragment"
     ]
   },
@@ -38,6 +40,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "feature-strip",
+    "components": [
+      "feature"
     ]
   }
 ]

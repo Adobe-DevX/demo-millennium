@@ -1,0 +1,116 @@
+.rewards-intro {
+  position: relative;
+  padding: 24px 24px 19px;
+  color: #444;
+}
+
+.rewards-intro-logo img {
+  display: block;
+  width: 264px;
+  max-width: 100%;
+  height: auto;
+}
+
+.rewards-intro-text {
+  margin-top: 20px;
+}
+
+.rewards-intro-text p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 21px;
+  color: #444;
+}
+
+.rewards-intro-actions {
+  margin-top: 16px;
+}
+
+.rewards-intro-actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 46px;
+}
+
+.rewards-intro-actions p {
+  margin: 0;
+}
+
+.rewards-intro a.rewards-intro-cta,
+.rewards-intro a.rewards-intro-link {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #444;
+  text-decoration: underline;
+}
+
+.rewards-intro-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 109px;
+  height: 35px;
+  border: 1px solid #444;
+  text-decoration: none;
+}
+
+.rewards-intro-book-now {
+  margin-top: 20px;
+  padding: 14px 22px;
+  background: #000;
+  color: #fff;
+}
+
+.rewards-intro-book-now > div {
+  position: relative;
+}
+
+.rewards-intro-book-now > div::after {
+  content: '\2190';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.rewards-intro-book-now p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+.rewards-intro a.rewards-intro-book-title {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rewards-intro-book-sub {
+  font-size: 12px;
+}
+
+@media (width >= 900px) {
+  .rewards-intro {
+    padding: 28px max(32px, calc((100% - 1212px) / 2)) 19px;
+  }
+
+  .rewards-intro-book-now {
+    position: absolute;
+    top: 109px;
+    right: 0;
+    box-sizing: border-box;
+    width: 158px;
+    height: 74px;
+    margin: 0;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+  }
+
+  .rewards-intro-book-now > div {
+    width: 100%;
+  }
+}

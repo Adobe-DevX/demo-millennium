@@ -136,6 +136,10 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Rewards",
+            "value": "rewards"
           }
         ]
       }
@@ -180,6 +184,38 @@
     ]
   },
   {
+    "id": "feature",
+    "fields": [
+      {
+        "component": "select",
+        "name": "icon",
+        "label": "Icon",
+        "value": "",
+        "options": [
+          {
+            "name": "Gift",
+            "value": "gift"
+          },
+          {
+            "name": "Wi-Fi",
+            "value": "wifi"
+          },
+          {
+            "name": "Points",
+            "value": "points"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Label",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -211,6 +247,49 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "rewards-intro",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo",
+        "description": "MyMillennium logo (SVG or image from AEM Assets)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt",
+        "label": "Logo alt text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "actions",
+        "value": "",
+        "label": "Action links",
+        "description": "First link is styled as the outlined JOIN NOW button",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "bookNow",
+        "value": "",
+        "label": "Book now tab",
+        "description": "Title link on the first line, subtitle on the second",
         "valueType": "string"
       }
     ]

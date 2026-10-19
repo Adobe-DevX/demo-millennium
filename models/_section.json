@@ -33,6 +33,10 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Rewards",
+              "value": "rewards"
             }
           ]
         }
@@ -51,6 +55,8 @@
         "cards",
         "columns",
         "video",
+        "rewards-intro",
+        "feature-strip",
         "fragment"
       ]
     }

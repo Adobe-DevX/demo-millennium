@@ -323,3 +323,27 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* full-bleed rewards section: intro, photo band and overlapping feature strip */
+main .section.rewards {
+  margin: 0;
+  padding: 0;
+}
+
+main .section.rewards > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+main .section.rewards .hero {
+  z-index: 0;
+  min-height: 280px;
+  padding: 0;
+}
+
+@media (width >= 900px) {
+  main .section.rewards .hero {
+    min-height: 450px;
+  }
+}
