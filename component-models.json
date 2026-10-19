@@ -232,5 +232,31 @@
         ]
       }
     ]
+  },
+  {
+    "id": "offers-listing",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "regionDefault",
+        "label": "Default Region",
+        "description": "Region preselected in the filter, e.g. Asia. Leave empty to show all regions."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "offerTypeDefault",
+        "label": "Default Offer Type",
+        "description": "Offer type preselected in the filter, e.g. Dining. Leave empty to show all offer types."
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "ctaBasePath",
+        "label": "Offer Details Base Page",
+        "description": "Card buttons link to this page path followed by the offer slug, e.g. /offers/flavours-of-autumn"
+      }
+    ]
   }
 ]
