@@ -1,4 +1,3 @@
-const ROW_NAMES = ['logo', 'logo-alt', 'text', 'actions', 'book-now'];
 const DEFAULT_LOGO_ALT = 'Millennium Hotels and Resorts';
 
 // /content/dam paths are served by AEM publish, not by the EDS or aem up host.
@@ -21,14 +20,30 @@ function decorateLogo(row, alt) {
   link.replaceWith(fallbackImg);
 }
 
+function hasLogoContent(row) {
+  return Boolean(row.querySelector('picture, img, a[href]'));
+}
+
+// Universal Editor omits empty text fields, so the logo-alt row can be missing and
+// row positions shift. Richtext rows are always present, so they are counted from the end.
+function labelRows(block) {
+  const rows = [...block.children];
+  const tail = rows.splice(-3);
+  const named = {};
+  if (rows.length === 2) {
+    [named.logo, named['logo-alt']] = rows;
+  } else if (rows.length === 1) {
+    const [single] = rows;
+    if (hasLogoContent(single)) named.logo = single;
+    else named['logo-alt'] = single;
+  }
+  [named.text, named.actions, named['book-now']] = tail;
+  Object.entries(named).forEach(([name, row]) => row?.classList.add(`rewards-intro-${name}`));
+  return named;
+}
+
 export default function decorate(block) {
-  const rowsByName = {};
-  [...block.children].forEach((row, index) => {
-    const name = ROW_NAMES[index];
-    if (!name) return;
-    row.classList.add(`rewards-intro-${name}`);
-    rowsByName[name] = row;
-  });
+  const rowsByName = labelRows(block);
 
   const altRow = rowsByName['logo-alt'];
   const alt = altRow?.textContent.trim() || DEFAULT_LOGO_ALT;

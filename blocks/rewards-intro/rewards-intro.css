@@ -26,7 +26,8 @@
   margin-top: 16px;
 }
 
-.rewards-intro-actions > div {
+.rewards-intro-actions > div,
+.rewards-intro-actions p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -42,6 +43,9 @@
   font-size: 14px;
   text-transform: uppercase;
   color: #444;
+}
+
+.rewards-intro a.rewards-intro-link {
   text-decoration: underline;
 }
 
