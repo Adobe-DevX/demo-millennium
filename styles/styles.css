@@ -347,3 +347,146 @@ main .section.rewards .hero {
     min-height: 450px;
   }
 }
+
+/* full-bleed featured offers section: heading row, banner image and overlapping card */
+main .section.offers {
+  --offers-image-height: 485px;
+  --offers-card-overlap: 34px;
+
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+
+main .section.offers > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+main .section.offers > .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 17px;
+  padding: 24px 10vw 23px;
+  background-color: #efefef;
+}
+
+main .section.offers > .default-content-wrapper h2 {
+  margin: 0;
+  font-family: Didot, 'Bodoni 72', Georgia, serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+main .section.offers > .default-content-wrapper p {
+  margin: 0;
+}
+
+main .section.offers > .default-content-wrapper > p:last-child {
+  flex-basis: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444;
+}
+
+main .section.offers > .default-content-wrapper a.button {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-underline-offset: 4px;
+}
+
+main .section.offers .hero {
+  position: relative;
+  z-index: 0;
+  min-height: 0;
+  padding: calc(var(--offers-image-height) - var(--offers-card-overlap)) 0 48px;
+}
+
+main .section.offers .hero picture {
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: var(--offers-image-height);
+}
+
+main .section.offers .hero > div:last-child {
+  position: relative;
+  box-sizing: border-box;
+  width: min(42vw, 828px);
+  margin-left: 5.6vw;
+  padding: 18px 20px 20px;
+  background-color: var(--background-color);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 14%);
+}
+
+main .section.offers .hero > div:last-child > div > p {
+  margin: 0 0 12px;
+}
+
+main .section.offers .hero > div:last-child > div > p:first-child {
+  margin-bottom: 18px;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #505050;
+}
+
+main .section.offers .hero > div:last-child > div > :is(h1, h2, h3, h4) {
+  margin: 0 0 8px;
+  font-family: Didot, 'Bodoni 72', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+main .section.offers .hero > div:last-child > div > p.button-container {
+  margin: 0;
+}
+
+main .section.offers .hero > div:last-child a.button {
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 21px;
+  border: 1px solid var(--text-color);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (width < 900px) {
+  main .section.offers {
+    --offers-image-height: 320px;
+    --offers-card-overlap: 24px;
+  }
+
+  main .section.offers > .default-content-wrapper {
+    padding: 24px 24px 20px;
+  }
+
+  main .section.offers > .default-content-wrapper h2 {
+    font-size: 30px;
+  }
+
+  main .section.offers .hero > div:last-child {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+  }
+}

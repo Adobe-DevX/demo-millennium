@@ -37,6 +37,10 @@
             {
               "name": "Rewards",
               "value": "rewards"
+            },
+            {
+              "name": "Featured Offers",
+              "value": "offers"
             }
           ]
         }
