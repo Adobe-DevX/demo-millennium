@@ -148,6 +148,10 @@
           {
             "name": "Featured Hotels",
             "value": "featured-hotels"
+          },
+          {
+            "name": "Connect With Us",
+            "value": "connect-with-us"
           }
         ]
       }

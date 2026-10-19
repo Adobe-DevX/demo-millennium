@@ -49,12 +49,21 @@ export default function decorate(block) {
   controls.append(prev, next);
   block.append(controls);
 
-  const currentIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+  // measured from the slides, so arrows step one slide even when several slides are visible at once
+  const slideStart = (slide) => slide.getBoundingClientRect().left
+    - track.getBoundingClientRect().left + track.scrollLeft;
+  const currentIndex = () => {
+    const slides = [...track.children];
+    const distance = (slide) => Math.abs(slideStart(slide) - track.scrollLeft);
+    return slides.reduce((nearest, slide, index) => (
+      distance(slide) < distance(slides[nearest]) ? index : nearest
+    ), 0);
+  };
   // jump straight to the target slide so only the image and card change, with no sliding
   const goTo = (index) => {
     const last = track.children.length - 1;
     const target = Math.min(Math.max(index, 0), last);
-    track.scrollTo({ left: target * track.clientWidth, behavior: 'instant' });
+    track.scrollTo({ left: slideStart(track.children[target]), behavior: 'instant' });
   };
   prev.addEventListener('click', () => goTo(currentIndex() - 1));
   next.addEventListener('click', () => goTo(currentIndex() + 1));

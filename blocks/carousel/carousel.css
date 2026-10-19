@@ -79,3 +79,119 @@
     padding: 0 16px 16px;
   }
 }
+
+/* connect-with-us section: heading, hashtag line and a carousel of square social cards, three visible at a time */
+main .section.connect-with-us {
+  --connect-inline: 10vw;
+  --connect-gap: 10px;
+
+  margin: 0;
+  padding: 24px var(--connect-inline) 48px;
+  background-color: #efefef;
+}
+
+main .section.connect-with-us > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+main .section.connect-with-us > .default-content-wrapper h2 {
+  margin: 0;
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+main .section.connect-with-us > .default-content-wrapper p {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #333;
+}
+
+main .section.connect-with-us > .default-content-wrapper a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+main .section.connect-with-us > .carousel-wrapper {
+  margin-top: 18px;
+}
+
+main .section.connect-with-us .carousel-track {
+  gap: var(--connect-gap);
+}
+
+main .section.connect-with-us .carousel-slide {
+  flex: 0 0 calc((100% - 2 * var(--connect-gap)) / 3);
+  aspect-ratio: 1 / 1;
+}
+
+/* soft shade behind the handle so the white text stays readable on bright photos */
+main .section.connect-with-us .carousel-slide::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgb(0 0 0 / 45%), transparent);
+  pointer-events: none;
+}
+
+main .section.connect-with-us .carousel-slide > div:last-child {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.35;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 40%);
+}
+
+main .section.connect-with-us .carousel-slide > div:last-child::before {
+  content: '';
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='5'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Ccircle cx='17.5' cy='6.5' r='1' fill='%23fff' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+main .section.connect-with-us .carousel-slide > div:last-child > div {
+  min-width: 0;
+}
+
+main .section.connect-with-us .carousel-slide > div:last-child p {
+  margin: 0;
+}
+
+main .section.connect-with-us .carousel-slide > div:last-child p:last-child {
+  text-transform: uppercase;
+}
+
+main .section.connect-with-us .carousel-controls {
+  position: static;
+  justify-content: flex-end;
+
+  /* the drawn arrow sits 8px inside its 72px button, so pull it flush with the card edge */
+  margin-right: -8px;
+  padding: 12px 0 0;
+}
+
+@media (width < 900px) {
+  main .section.connect-with-us {
+    --connect-inline: 20px;
+  }
+
+  main .section.connect-with-us .carousel-slide {
+    flex-basis: 80%;
+  }
+}
