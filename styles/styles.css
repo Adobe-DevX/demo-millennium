@@ -393,12 +393,7 @@ main .section.offers > .default-content-wrapper > p:last-child {
   color: #444;
 }
 
-main .section.offers > .default-content-wrapper a.button {
-  display: inline;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background-color: transparent;
+main .section.offers > .default-content-wrapper a {
   color: var(--text-color);
   font-size: 12px;
   font-weight: 400;
@@ -453,22 +448,29 @@ main .section.offers .hero > div:last-child > div > :is(h1, h2, h3, h4) {
   color: var(--text-color);
 }
 
-main .section.offers .hero > div:last-child > div > p.button-container {
+main .section.offers .hero > div:last-child > div > p:last-child {
   margin: 0;
 }
 
-main .section.offers .hero > div:last-child a.button {
+main .section.offers .hero > div:last-child a {
   box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: 34px;
   padding: 0 21px;
   border: 1px solid var(--text-color);
   border-radius: 0;
   background-color: transparent;
   color: var(--text-color);
+  font: inherit;
   font-size: 13px;
+  font-weight: 500;
   letter-spacing: 0.08em;
+  line-height: 1.25;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 @media (width < 900px) {
