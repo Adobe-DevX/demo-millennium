@@ -37,7 +37,7 @@
 .carousel-controls {
   position: absolute;
   right: 7px;
-  bottom: var(--carousel-controls-bottom, 150px);
+  top: calc(var(--offers-image-height, 433px) + 18px);
   z-index: 1;
   display: flex;
 }
@@ -45,7 +45,7 @@
 .carousel-arrow {
   display: grid;
   place-items: center;
-  width: 40px;
+  width: 72px;
   height: 40px;
   padding: 0;
   border: 0;
@@ -55,8 +55,8 @@
 }
 
 .carousel-arrow svg {
-  width: 26px;
-  height: 26px;
+  width: 56px;
+  height: 24px;
   fill: none;
   stroke: currentcolor;
   stroke-width: 1.2;

@@ -1,8 +1,8 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 const ARROWS = {
-  prev: { label: 'Previous slide', path: 'M20 12H4M10 6l-6 6 6 6' },
-  next: { label: 'Next slide', path: 'M4 12h16M14 6l6 6-6 6' },
+  prev: { label: 'Previous slide', path: 'M52 12H4M10 6l-6 6 6 6' },
+  next: { label: 'Next slide', path: 'M4 12h48M46 6l6 6-6 6' },
 };
 
 function createArrow(direction) {
@@ -11,7 +11,7 @@ function createArrow(direction) {
   button.type = 'button';
   button.className = `carousel-arrow carousel-arrow-${direction}`;
   button.setAttribute('aria-label', label);
-  button.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${path}"/></svg>`;
+  button.innerHTML = `<svg viewBox="0 0 56 24" aria-hidden="true" focusable="false"><path d="${path}"/></svg>`;
   return button;
 }
 
@@ -49,15 +49,19 @@ export default function decorate(block) {
   controls.append(prev, next);
   block.append(controls);
 
-  prev.addEventListener('click', () => {
-    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
-  });
-  next.addEventListener('click', () => {
-    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
-  });
+  const currentIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+  // jump straight to the target slide so only the image and card change, with no sliding
+  const goTo = (index) => {
+    const last = track.children.length - 1;
+    const target = Math.min(Math.max(index, 0), last);
+    track.scrollTo({ left: target * track.clientWidth, behavior: 'instant' });
+  };
+  prev.addEventListener('click', () => goTo(currentIndex() - 1));
+  next.addEventListener('click', () => goTo(currentIndex() + 1));
 
   const refresh = () => updateArrows(track, prev, next);
   track.addEventListener('scroll', refresh, { passive: true });
-  window.addEventListener('resize', refresh);
+  // sections are hidden while their blocks decorate, so track size only becomes real later
+  new ResizeObserver(refresh).observe(track);
   refresh();
 }

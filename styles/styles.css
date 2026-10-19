@@ -328,6 +328,7 @@ main .section.highlight {
 main .section.rewards {
   margin: 0;
   padding: 0;
+  padding-top: 100px;
 }
 
 main .section.rewards > div {
@@ -354,16 +355,20 @@ main .section:is(.offers, .featured-hotels) {
   --offers-card-overlap: 34px;
   --offers-card-left: 5.6vw;
   --offers-card-width: min(42vw, 828px);
+  --offers-card-padding: 18px 20px 20px;
 
   margin: 0;
   padding: 0;
+  padding-top: 50px;
   background-color: #fafafa;
 }
 
 main .section.featured-hotels {
   --offers-image-height: 433px;
+  --offers-card-overlap: 43px;
   --offers-card-left: 10vw;
   --offers-card-width: min(40vw, 828px);
+  --offers-card-padding: 28px 36px;
 }
 
 main .section:is(.offers, .featured-hotels) > div {
@@ -393,12 +398,17 @@ main .section:is(.offers, .featured-hotels) > .default-content-wrapper p {
   margin: 0;
 }
 
-main .section:is(.offers, .featured-hotels) > .default-content-wrapper > p:last-child {
+/* description paragraphs (no link) always start a new line, even when the text is split across paragraphs */
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper > p:not(:has(a)) {
   flex-basis: 100%;
   margin-top: 20px;
   font-size: 16px;
   line-height: 1.5;
   color: #444;
+}
+
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper > p:not(:has(a)) + p:not(:has(a)) {
+  margin-top: 0;
 }
 
 main .section:is(.offers, .featured-hotels) > .default-content-wrapper a {
@@ -429,7 +439,7 @@ main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:la
   box-sizing: border-box;
   width: var(--offers-card-width);
   margin-left: var(--offers-card-left);
-  padding: 18px 20px 20px;
+  padding: var(--offers-card-padding);
   background-color: var(--background-color);
   box-shadow: 0 6px 18px rgb(0 0 0 / 14%);
 }
@@ -485,6 +495,7 @@ main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:la
   main .section:is(.offers, .featured-hotels) {
     --offers-image-height: 320px;
     --offers-card-overlap: 24px;
+    --offers-card-padding: 18px 20px 20px;
   }
 
   main .section:is(.offers, .featured-hotels) > .default-content-wrapper {
