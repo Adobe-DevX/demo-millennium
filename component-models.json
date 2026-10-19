@@ -214,5 +214,33 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video",
+        "description": "Select an MP4 or WebM video asset from AEM Assets (DAM)",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "poster",
+        "label": "Poster image",
+        "description": "Image shown before the video starts playing",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "videoAlt",
+        "label": "Accessible label",
+        "value": ""
+      }
+    ]
   }
 ]
