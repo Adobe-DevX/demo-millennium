@@ -3,8 +3,16 @@ const VIDEO_TYPES = {
   webm: 'video/webm',
 };
 
+// /content/dam paths are served by AEM publish, not by the EDS or aem up host.
+const AEM_PUBLISH_ORIGIN = 'https://publish-p232534-e2346309.adobeaemcloud.com';
+
 function getExtension(href) {
   return new URL(href, window.location.href).pathname.split('.').pop().toLowerCase();
+}
+
+function getSourceUrl(link) {
+  const path = link.getAttribute('href');
+  return path.startsWith('/content/dam/') ? `${AEM_PUBLISH_ORIGIN}${path}` : link.href;
 }
 
 function getAccessibleLabel(block) {
@@ -43,7 +51,7 @@ export default function decorate(block) {
 
   if (videoLink) {
     const source = document.createElement('source');
-    source.src = videoLink.href;
+    source.src = getSourceUrl(videoLink);
     const type = VIDEO_TYPES[getExtension(videoLink.href)];
     if (type) source.type = type;
     video.append(source);
