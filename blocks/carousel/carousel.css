@@ -1,0 +1,81 @@
+.carousel {
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  position: relative;
+  z-index: 0;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.carousel-slide picture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  box-sizing: border-box;
+}
+
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-controls {
+  position: absolute;
+  right: 7px;
+  bottom: var(--carousel-controls-bottom, 150px);
+  z-index: 1;
+  display: flex;
+}
+
+.carousel-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.carousel-arrow svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.2;
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel-arrow:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 2px;
+}
+
+@media (width < 900px) {
+  .carousel-controls {
+    position: static;
+    justify-content: flex-end;
+    padding: 0 16px 16px;
+  }
+}

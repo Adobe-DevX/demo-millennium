@@ -41,6 +41,10 @@
             {
               "name": "Featured Offers",
               "value": "offers"
+            },
+            {
+              "name": "Featured Hotels",
+              "value": "featured-hotels"
             }
           ]
         }
@@ -61,6 +65,7 @@
         "video",
         "rewards-intro",
         "feature-strip",
+        "carousel",
         "fragment"
       ]
     }

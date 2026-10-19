@@ -348,23 +348,31 @@ main .section.rewards .hero {
   }
 }
 
-/* full-bleed featured offers section: heading row, banner image and overlapping card */
-main .section.offers {
+/* full-bleed offers and featured hotels sections: heading row, banner image and overlapping card */
+main .section:is(.offers, .featured-hotels) {
   --offers-image-height: 485px;
   --offers-card-overlap: 34px;
+  --offers-card-left: 5.6vw;
+  --offers-card-width: min(42vw, 828px);
 
   margin: 0;
   padding: 0;
   background-color: #fafafa;
 }
 
-main .section.offers > div {
+main .section.featured-hotels {
+  --offers-image-height: 433px;
+  --offers-card-left: 10vw;
+  --offers-card-width: min(40vw, 828px);
+}
+
+main .section:is(.offers, .featured-hotels) > div {
   max-width: none;
   margin: 0;
   padding: 0;
 }
 
-main .section.offers > .default-content-wrapper {
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -373,7 +381,7 @@ main .section.offers > .default-content-wrapper {
   background-color: #efefef;
 }
 
-main .section.offers > .default-content-wrapper h2 {
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper h2 {
   margin: 0;
   font-family: Didot, 'Bodoni 72', Georgia, serif;
   font-size: 35px;
@@ -381,11 +389,11 @@ main .section.offers > .default-content-wrapper h2 {
   line-height: 1.2;
 }
 
-main .section.offers > .default-content-wrapper p {
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper p {
   margin: 0;
 }
 
-main .section.offers > .default-content-wrapper > p:last-child {
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper > p:last-child {
   flex-basis: 100%;
   margin-top: 20px;
   font-size: 16px;
@@ -393,7 +401,7 @@ main .section.offers > .default-content-wrapper > p:last-child {
   color: #444;
 }
 
-main .section.offers > .default-content-wrapper a {
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper a {
   color: var(--text-color);
   font-size: 12px;
   font-weight: 400;
@@ -403,34 +411,34 @@ main .section.offers > .default-content-wrapper a {
   text-underline-offset: 4px;
 }
 
-main .section.offers .hero {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) {
   position: relative;
   z-index: 0;
   min-height: 0;
   padding: calc(var(--offers-image-height) - var(--offers-card-overlap)) 0 48px;
 }
 
-main .section.offers .hero picture {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) picture {
   inset: 0 auto auto 0;
   width: 100%;
   height: var(--offers-image-height);
 }
 
-main .section.offers .hero > div:last-child {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child {
   position: relative;
   box-sizing: border-box;
-  width: min(42vw, 828px);
-  margin-left: 5.6vw;
+  width: var(--offers-card-width);
+  margin-left: var(--offers-card-left);
   padding: 18px 20px 20px;
   background-color: var(--background-color);
   box-shadow: 0 6px 18px rgb(0 0 0 / 14%);
 }
 
-main .section.offers .hero > div:last-child > div > p {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > p {
   margin: 0 0 12px;
 }
 
-main .section.offers .hero > div:last-child > div > p:first-child {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > p:first-child {
   margin-bottom: 18px;
   font-size: 12px;
   line-height: 1.25;
@@ -439,7 +447,7 @@ main .section.offers .hero > div:last-child > div > p:first-child {
   color: #505050;
 }
 
-main .section.offers .hero > div:last-child > div > :is(h1, h2, h3, h4) {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > :is(h1, h2, h3, h4) {
   margin: 0 0 8px;
   font-family: Didot, 'Bodoni 72', Georgia, serif;
   font-size: 24px;
@@ -448,11 +456,11 @@ main .section.offers .hero > div:last-child > div > :is(h1, h2, h3, h4) {
   color: var(--text-color);
 }
 
-main .section.offers .hero > div:last-child > div > p:last-child {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > p:last-child {
   margin: 0;
 }
 
-main .section.offers .hero > div:last-child a {
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child a {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -474,20 +482,20 @@ main .section.offers .hero > div:last-child a {
 }
 
 @media (width < 900px) {
-  main .section.offers {
+  main .section:is(.offers, .featured-hotels) {
     --offers-image-height: 320px;
     --offers-card-overlap: 24px;
   }
 
-  main .section.offers > .default-content-wrapper {
+  main .section:is(.offers, .featured-hotels) > .default-content-wrapper {
     padding: 24px 24px 20px;
   }
 
-  main .section.offers > .default-content-wrapper h2 {
+  main .section:is(.offers, .featured-hotels) > .default-content-wrapper h2 {
     font-size: 30px;
   }
 
-  main .section.offers .hero > div:last-child {
+  main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child {
     width: calc(100% - 32px);
     margin-left: 16px;
   }
