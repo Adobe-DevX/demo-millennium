@@ -109,6 +109,53 @@ export function decorateButtons(main) {
   });
 }
 
+const IMAGE_PATH = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
+// AEM Assets delivery URLs carry no file extension, e.g. /adobe/assets/urn:aaid:aem:<id>
+const ADOBE_ASSET_PATH = /^\/adobe\/(assets|dynamicmedia)\//;
+
+/**
+ * Checks whether a URL points to an image served by Scene7 or AEM Assets delivery.
+ * @param {string} href The URL to check
+ * @returns {boolean}
+ */
+function isImageUrl(href) {
+  try {
+    const { hostname, pathname } = new URL(href, window.location.href);
+    if (hostname.endsWith('scene7.com')) return pathname.startsWith('/is/image/');
+    return IMAGE_PATH.test(pathname) || ADOBE_ASSET_PATH.test(pathname);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Converts image links that Universal Editor inserts for Dynamic Media or Scene7 renditions
+ * into picture elements, so blocks receive them like any other image.
+ * @param {HTMLElement} container The container element
+ */
+export function decorateImageLinks(container) {
+  container.querySelectorAll('a[href]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!isImageUrl(href)) return;
+
+    const text = a.textContent.trim();
+    const isUrlLabel = !text || text === href || /^https?:\/\//i.test(text);
+    // Universal Editor labels an image reference with its alt text, so a label is kept
+    // as alt text when the link is the only content of its paragraph or cell
+    const isOnlyContent = a.parentElement?.textContent.trim() === text
+      && a.parentElement.children.length === 1;
+    if (!isUrlLabel && !isOnlyContent) return;
+
+    const img = document.createElement('img');
+    img.src = href;
+    img.alt = isUrlLabel ? '' : text;
+    moveInstrumentation(a, img);
+    const picture = document.createElement('picture');
+    picture.append(img);
+    a.replaceWith(picture);
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -117,6 +164,7 @@ export function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  decorateImageLinks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
