@@ -1,6 +1,8 @@
 const AUTHOR_HOST_PATTERN = /^author-p\d+-e\d+\.adobeaemcloud\.com$/;
 const PUBLISH_ORIGIN = 'https://publish-p232534-e2346309.adobeaemcloud.com';
 const QUERY_PATH = '/graphql/execute.json/millennium-hotels/millenniumOffersBySlug';
+// offer updates show up within this window despite the long publish CDN TTL
+const CACHE_WINDOW_MS = 5 * 60 * 1000;
 const BANNER_WIDTHS = [750, 1200, 2000];
 const BANNER_QUALITY = 80;
 
@@ -33,9 +35,10 @@ async function fetchOffer(slug) {
   const author = isAuthor();
   const query = `${QUERY_PATH};slug=${encodeURIComponent(slug)}`;
   // a per-origin cache key keeps the publish CDN from serving copies cached without CORS headers
+  const cacheKey = Math.floor(Date.now() / CACHE_WINDOW_MS);
   const url = author
     ? `${window.location.origin}${query}`
-    : `${PUBLISH_ORIGIN}${query}?origin=${encodeURIComponent(window.location.origin)}`;
+    : `${PUBLISH_ORIGIN}${query}?origin=${encodeURIComponent(window.location.origin)}&v=${cacheKey}`;
   const options = { credentials: author ? 'include' : 'omit' };
   let resp;
   try {
