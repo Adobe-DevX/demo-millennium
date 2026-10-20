@@ -1,0 +1,103 @@
+.newsletter {
+  max-width: 264px;
+  font-size: 10px;
+  line-height: 17px;
+  color: #333;
+}
+
+.newsletter p {
+  margin: 0;
+}
+
+.newsletter h2 {
+  margin: 0 0 14px;
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 17px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.newsletter .newsletter-title {
+  margin-bottom: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.newsletter > div:first-child p:last-child {
+  margin-bottom: 26px;
+}
+
+.newsletter a {
+  color: #333;
+  text-decoration: none;
+}
+
+.newsletter .icon {
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  margin-right: 12px;
+}
+
+.newsletter .icon img {
+  width: 25px;
+  height: 25px;
+}
+
+.newsletter .newsletter-field {
+  display: flex;
+  height: 27px;
+}
+
+.newsletter .newsletter-field input[type='email'] {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-right: 0;
+  border-radius: 0;
+  background: #fff;
+  color: #333;
+  font-size: 6.5px;
+}
+
+.newsletter .newsletter-field input[type='email']::placeholder {
+  color: #777;
+}
+
+.newsletter .newsletter-field button {
+  flex: 0 0 92px;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #000;
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.newsletter .newsletter-consent {
+  display: flex;
+  gap: 9px;
+  margin-top: 22px;
+  color: #333;
+  font-size: 7.5px;
+  line-height: 15.5px;
+  cursor: pointer;
+}
+
+.newsletter .newsletter-consent input {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  margin: 2px 0 0;
+}
+
+.newsletter .newsletter-consent a {
+  color: inherit;
+  text-decoration: underline;
+}

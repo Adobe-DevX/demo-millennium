@@ -33,6 +33,38 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Rewards",
+              "value": "rewards"
+            },
+            {
+              "name": "Featured Offers",
+              "value": "offers"
+            },
+            {
+              "name": "Featured Hotels",
+              "value": "featured-hotels"
+            },
+            {
+              "name": "Connect With Us",
+              "value": "connect-with-us"
+            },
+            {
+              "name": "Footer Brands",
+              "value": "footer-brands"
+            },
+            {
+              "name": "Footer Divider",
+              "value": "footer-divider"
+            },
+            {
+              "name": "Footer Links",
+              "value": "footer-links"
+            },
+            {
+              "name": "Footer Legal",
+              "value": "footer-legal"
             }
           ]
         }
@@ -50,6 +82,11 @@
         "hero",
         "cards",
         "columns",
+        "video",
+        "rewards-intro",
+        "feature-strip",
+        "carousel",
+        "newsletter",
         "fragment",
         "offers-listing",
         "offer-detail"

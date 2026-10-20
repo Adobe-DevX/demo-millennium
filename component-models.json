@@ -136,6 +136,38 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Rewards",
+            "value": "rewards"
+          },
+          {
+            "name": "Featured Offers",
+            "value": "offers"
+          },
+          {
+            "name": "Featured Hotels",
+            "value": "featured-hotels"
+          },
+          {
+            "name": "Connect With Us",
+            "value": "connect-with-us"
+          },
+          {
+            "name": "Footer Brands",
+            "value": "footer-brands"
+          },
+          {
+            "name": "Footer Divider",
+            "value": "footer-divider"
+          },
+          {
+            "name": "Footer Links",
+            "value": "footer-links"
+          },
+          {
+            "name": "Footer Legal",
+            "value": "footer-legal"
           }
         ]
       }
@@ -143,6 +175,25 @@
   },
   {
     "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "slide",
     "fields": [
       {
         "component": "reference",
@@ -176,6 +227,38 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "feature",
+    "fields": [
+      {
+        "component": "select",
+        "name": "icon",
+        "label": "Icon",
+        "value": "",
+        "options": [
+          {
+            "name": "Gift",
+            "value": "gift"
+          },
+          {
+            "name": "Wi-Fi",
+            "value": "wifi"
+          },
+          {
+            "name": "Points",
+            "value": "points"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Label",
+        "value": ""
       }
     ]
   },
@@ -234,6 +317,27 @@
     ]
   },
   {
+    "id": "newsletter",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "follow",
+        "value": "",
+        "label": "Follow us",
+        "description": "Heading line, then one link per network. Link text must be facebook, instagram or weibo.",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "signup",
+        "value": "",
+        "label": "Newsletter",
+        "description": "First line is the heading. Remaining lines are the consent text.",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "offer-detail",
     "fields": [
       {
@@ -268,6 +372,77 @@
         "name": "ctaBasePath",
         "label": "Offer Details Base Page",
         "description": "Parent page of the offer detail pages, e.g. /offers. Card buttons link to this path followed by the offer slug, e.g. /offers/flavours-of-autumn"
+      }
+    ]
+  },
+  {
+    "id": "rewards-intro",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo",
+        "description": "MyMillennium logo (SVG or image from AEM Assets)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt",
+        "label": "Logo alt text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "actions",
+        "value": "",
+        "label": "Action links",
+        "description": "First link is styled as the outlined JOIN NOW button",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "bookNow",
+        "value": "",
+        "label": "Book now tab",
+        "description": "Title link on the first line, subtitle on the second",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video",
+        "description": "Select an MP4 or WebM video asset from AEM Assets (DAM)",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "poster",
+        "label": "Poster image",
+        "description": "Image shown before the video starts playing",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "videoAlt",
+        "label": "Accessible label",
+        "value": ""
       }
     ]
   }
