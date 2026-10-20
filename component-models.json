@@ -295,6 +295,24 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "description": "Select a styling variation for the hero",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Millennium Banner",
+            "value": "millennium-banner"
+          }
+        ]
       }
     ]
   },
@@ -316,6 +334,32 @@
         "label": "Newsletter",
         "description": "First line is the heading. Remaining lines are the consent text.",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "offers-listing",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "regionDefault",
+        "label": "Default Region",
+        "description": "Region preselected in the filter, e.g. Asia. Leave empty to show all regions."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "offerTypeDefault",
+        "label": "Default Offer Type",
+        "description": "Offer type preselected in the filter, e.g. Dining. Leave empty to show all offer types."
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "ctaBasePath",
+        "label": "Offer Details Base Page",
+        "description": "Card buttons link to this page path followed by the offer slug, e.g. /offers/flavours-of-autumn"
       }
     ]
   },

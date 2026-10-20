@@ -233,6 +233,21 @@
           }
         },
         {
+          "title": "Offers Listing",
+          "id": "offers-listing",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Offers Listing",
+                  "model": "offers-listing"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Rewards Intro",
           "id": "rewards-intro",
           "plugins": {
