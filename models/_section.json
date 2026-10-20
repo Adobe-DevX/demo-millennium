@@ -49,6 +49,22 @@
             {
               "name": "Connect With Us",
               "value": "connect-with-us"
+            },
+            {
+              "name": "Footer Brands",
+              "value": "footer-brands"
+            },
+            {
+              "name": "Footer Divider",
+              "value": "footer-divider"
+            },
+            {
+              "name": "Footer Links",
+              "value": "footer-links"
+            },
+            {
+              "name": "Footer Legal",
+              "value": "footer-legal"
             }
           ]
         }
@@ -70,6 +86,7 @@
         "rewards-intro",
         "feature-strip",
         "carousel",
+        "newsletter",
         "fragment"
       ]
     }

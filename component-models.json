@@ -152,6 +152,22 @@
           {
             "name": "Connect With Us",
             "value": "connect-with-us"
+          },
+          {
+            "name": "Footer Brands",
+            "value": "footer-brands"
+          },
+          {
+            "name": "Footer Divider",
+            "value": "footer-divider"
+          },
+          {
+            "name": "Footer Links",
+            "value": "footer-links"
+          },
+          {
+            "name": "Footer Legal",
+            "value": "footer-legal"
           }
         ]
       }
@@ -278,6 +294,27 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "newsletter",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "follow",
+        "value": "",
+        "label": "Follow us",
+        "description": "Heading line, then one link per network. Link text must be facebook, instagram or weibo.",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "signup",
+        "value": "",
+        "label": "Newsletter",
+        "description": "First line is the heading. Remaining lines are the consent text.",
         "valueType": "string"
       }
     ]
