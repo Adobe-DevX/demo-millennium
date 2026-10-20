@@ -43,12 +43,18 @@ function readConfig(block) {
   };
 }
 
-function buildOfferUrl(basePath, slug) {
+function toPathSegment(value) {
+  return (value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function buildOfferUrl(basePath, region, slug) {
   if (!basePath || !slug) return '';
   const [path, hash] = basePath.split('#');
   const isHtml = path.endsWith('.html');
   const base = path.replace(/\.html$/, '').replace(/\/$/, '');
-  return `${base}/${encodeURIComponent(slug)}${isHtml ? '.html' : ''}${hash ? `#${hash}` : ''}`;
+  const segments = [toPathSegment(region), encodeURIComponent(slug.trim())].filter(Boolean);
+  return `${base}/${segments.join('/')}${isHtml ? '.html' : ''}${hash ? `#${hash}` : ''}`;
 }
 
 function buildPicture(image, alt) {
@@ -106,7 +112,7 @@ function buildCard(offer, ctaBasePath) {
     body.append(description);
   }
 
-  const href = buildOfferUrl(ctaBasePath, offer.slug);
+  const href = buildOfferUrl(ctaBasePath, offer.region, offer.slug);
   if (href) {
     const cta = document.createElement('a');
     cta.className = 'offers-listing-card-cta';
