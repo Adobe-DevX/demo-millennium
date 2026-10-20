@@ -51,7 +51,8 @@
         "cards",
         "columns",
         "fragment",
-        "offers-listing"
+        "offers-listing",
+        "offer-detail"
       ]
     }
   ]

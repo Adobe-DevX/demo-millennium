@@ -234,6 +234,18 @@
     ]
   },
   {
+    "id": "offer-detail",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "slug",
+        "label": "Offer Slug",
+        "description": "Slug of the offer content fragment, e.g. flavours-of-autumn. Leave empty to use this page's name."
+      }
+    ]
+  },
+  {
     "id": "offers-listing",
     "fields": [
       {
@@ -255,7 +267,7 @@
         "valueType": "string",
         "name": "ctaBasePath",
         "label": "Offer Details Base Page",
-        "description": "Card buttons link to this page path followed by the offer slug, e.g. /offers/flavours-of-autumn"
+        "description": "Parent page of the offer detail pages, e.g. /offers. Card buttons link to this path followed by the offer slug, e.g. /offers/flavours-of-autumn"
       }
     ]
   }
