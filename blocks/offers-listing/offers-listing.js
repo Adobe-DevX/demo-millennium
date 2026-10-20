@@ -1,6 +1,8 @@
 const AUTHOR_HOST_PATTERN = /^author-p\d+-e\d+\.adobeaemcloud\.com$/;
 const PUBLISH_ORIGIN = 'https://publish-p232534-e2346309.adobeaemcloud.com';
 const QUERY_PATH = '/graphql/execute.json/millennium-hotels/MillenniumOffersListAll';
+// newly published offers show up within this window despite the long publish CDN TTL
+const CACHE_WINDOW_MS = 5 * 60 * 1000;
 const DEFAULT_CTA_LABEL = 'Find out more';
 const ALL = '';
 
@@ -17,9 +19,10 @@ function getOrigin() {
 async function fetchOffers() {
   const author = isAuthor();
   // a per-origin cache key keeps the publish CDN from serving copies cached without CORS headers
+  const cacheKey = Math.floor(Date.now() / CACHE_WINDOW_MS);
   const url = author
     ? `${window.location.origin}${QUERY_PATH}`
-    : `${PUBLISH_ORIGIN}${QUERY_PATH}?origin=${encodeURIComponent(window.location.origin)}`;
+    : `${PUBLISH_ORIGIN}${QUERY_PATH}?origin=${encodeURIComponent(window.location.origin)}&v=${cacheKey}`;
   const options = { credentials: author ? 'include' : 'omit' };
   let resp;
   try {
@@ -43,12 +46,18 @@ function readConfig(block) {
   };
 }
 
-function buildOfferUrl(basePath, slug) {
+function toPathSegment(value) {
+  return (value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function buildOfferUrl(basePath, region, slug) {
   if (!basePath || !slug) return '';
   const [path, hash] = basePath.split('#');
   const isHtml = path.endsWith('.html');
   const base = path.replace(/\.html$/, '').replace(/\/$/, '');
-  return `${base}/${encodeURIComponent(slug)}${isHtml ? '.html' : ''}${hash ? `#${hash}` : ''}`;
+  const segments = [toPathSegment(region), encodeURIComponent(slug.trim())].filter(Boolean);
+  return `${base}/${segments.join('/')}${isHtml ? '.html' : ''}${hash ? `#${hash}` : ''}`;
 }
 
 function buildPicture(image, alt) {
@@ -106,7 +115,7 @@ function buildCard(offer, ctaBasePath) {
     body.append(description);
   }
 
-  const href = buildOfferUrl(ctaBasePath, offer.slug);
+  const href = buildOfferUrl(ctaBasePath, offer.region, offer.slug);
   if (href) {
     const cta = document.createElement('a');
     cta.className = 'offers-listing-card-cta';

@@ -1,0 +1,99 @@
+.offer-detail {
+  --offer-detail-heading-font: optima, candara, 'Noto Sans', 'Trebuchet MS', serif;
+  --offer-detail-body-font: arial, helvetica, sans-serif;
+  --offer-detail-text-color: #363636;
+
+  min-height: 300px;
+}
+
+.offer-detail .offer-detail-banner {
+  aspect-ratio: 3 / 2;
+  margin: 0 0 32px;
+  overflow: hidden;
+  background-color: var(--light-color);
+}
+
+.offer-detail .offer-detail-banner picture,
+.offer-detail .offer-detail-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-detail .offer-detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--offer-detail-body-font);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--offer-detail-text-color);
+}
+
+.offer-detail .offer-detail-content :is(h1, h2, h3, h4, h5, h6) {
+  margin: 32px 0 16px;
+  font-family: var(--offer-detail-heading-font);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000;
+}
+
+.offer-detail .offer-detail-content > :is(h1, h2):first-child {
+  margin-top: 0;
+  font-size: var(--heading-font-size-xl);
+}
+
+.offer-detail .offer-detail-description p {
+  margin: 0 0 16px;
+}
+
+.offer-detail .offer-detail-description a:any-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.offer-detail .offer-detail-description p.button-wrapper {
+  margin: 24px 0;
+}
+
+.offer-detail .offer-detail-description a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 8px 32px;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-family: var(--offer-detail-body-font);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--background-color);
+  background-color: #000;
+}
+
+.offer-detail .offer-detail-description a.button:hover,
+.offer-detail .offer-detail-description a.button:focus-visible {
+  color: #000;
+  background-color: var(--background-color);
+}
+
+.offer-detail .offer-detail-message {
+  margin: 0;
+  padding: 32px 0;
+  font-family: var(--offer-detail-body-font);
+  font-size: 14px;
+  text-align: center;
+  color: var(--offer-detail-text-color);
+}
+
+@media (width >= 900px) {
+  .offer-detail .offer-detail-banner {
+    aspect-ratio: 2 / 1;
+    margin-bottom: 48px;
+  }
+
+  .offer-detail .offer-detail-content {
+    font-size: 18px;
+  }
+}

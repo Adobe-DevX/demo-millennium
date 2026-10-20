@@ -39,7 +39,7 @@
           "valueType": "string",
           "name": "ctaBasePath",
           "label": "Offer Details Base Page",
-          "description": "Card buttons link to this page path followed by the offer slug, e.g. /offers/flavours-of-autumn"
+          "description": "Parent page of the offer detail pages, e.g. /offers. Card buttons link to this path followed by the offer region and slug, e.g. /offers/asia/flavours-of-autumn"
         }
       ]
     }
