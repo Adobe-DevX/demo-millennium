@@ -137,6 +137,9 @@ export function decorateImageLinks(container) {
   container.querySelectorAll('a[href]').forEach((a) => {
     const href = a.getAttribute('href');
     if (!isImageUrl(href)) return;
+    // The video block reads its first link (the video source) itself
+    const videoBlock = a.closest('.video');
+    if (videoBlock && videoBlock.querySelector('a[href]') === a) return;
 
     const text = a.textContent.trim();
     const isUrlLabel = !text || text === href || /^https?:\/\//i.test(text);

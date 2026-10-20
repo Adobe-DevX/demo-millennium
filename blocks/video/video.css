@@ -12,17 +12,20 @@ main > .section.video-container {
   line-height: 0;
 }
 
-.video video {
+.video video,
+.video iframe {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  border: 0;
   background-color: #000;
 }
 
 @media (width >= 900px) {
-  .video video {
+  .video video,
+  .video iframe {
     aspect-ratio: 2 / 1;
     max-height: calc(100svh - var(--nav-height));
   }
