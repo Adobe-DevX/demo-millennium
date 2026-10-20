@@ -2,7 +2,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1100px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -135,6 +135,15 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  } else {
+    // without an authored brand link, the logo links to the home page
+    const logo = navBrand.querySelector('picture, img');
+    if (logo) {
+      const homeLink = document.createElement('a');
+      homeLink.href = '/';
+      logo.replaceWith(homeLink);
+      homeLink.append(logo);
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');

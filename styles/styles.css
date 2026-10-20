@@ -323,3 +323,191 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* full-bleed rewards section: intro, photo band and overlapping feature strip */
+main .section.rewards {
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
+}
+
+main .section.rewards > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+main .section.rewards .hero {
+  z-index: 0;
+  min-height: 280px;
+  padding: 0;
+}
+
+@media (width >= 900px) {
+  main .section.rewards .hero {
+    min-height: 450px;
+  }
+}
+
+/* full-bleed offers and featured hotels sections: heading row, banner image and overlapping card */
+main .section:is(.offers, .featured-hotels) {
+  --offers-image-height: 485px;
+  --offers-card-overlap: 34px;
+  --offers-card-left: 5.6vw;
+  --offers-card-width: min(42vw, 828px);
+  --offers-card-padding: 18px 20px 20px;
+
+  margin: 0;
+  padding: 0;
+  padding-top: 50px;
+  background-color: #fafafa;
+}
+
+main .section.featured-hotels {
+  --offers-image-height: 433px;
+  --offers-card-overlap: 43px;
+  --offers-card-left: 10vw;
+  --offers-card-width: min(40vw, 828px);
+  --offers-card-padding: 28px 36px;
+}
+
+main .section:is(.offers, .featured-hotels) > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 17px;
+  padding: 24px 10vw 23px;
+  background-color: #efefef;
+}
+
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper h2 {
+  margin: 0;
+  font-family: Didot, 'Bodoni 72', Georgia, serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper p {
+  margin: 0;
+}
+
+/* description paragraphs (no link) always start a new line, even when the text is split across paragraphs */
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper > p:not(:has(a)) {
+  flex-basis: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444;
+}
+
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper > p:not(:has(a)) + p:not(:has(a)) {
+  margin-top: 0;
+}
+
+main .section:is(.offers, .featured-hotels) > .default-content-wrapper a {
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-underline-offset: 4px;
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) {
+  position: relative;
+  z-index: 0;
+  min-height: 0;
+  padding: calc(var(--offers-image-height) - var(--offers-card-overlap)) 0 48px;
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) picture {
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: var(--offers-image-height);
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child {
+  position: relative;
+  box-sizing: border-box;
+  width: var(--offers-card-width);
+  margin-left: var(--offers-card-left);
+  padding: var(--offers-card-padding);
+  background-color: var(--background-color);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 14%);
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > p {
+  margin: 0 0 12px;
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > p:first-child {
+  margin-bottom: 18px;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #505050;
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > :is(h1, h2, h3, h4) {
+  margin: 0 0 8px;
+  font-family: Didot, 'Bodoni 72', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child > div > p:last-child {
+  margin: 0;
+}
+
+main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child a {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 21px;
+  border: 1px solid var(--text-color);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (width < 900px) {
+  main .section:is(.offers, .featured-hotels) {
+    --offers-image-height: 320px;
+    --offers-card-overlap: 24px;
+    --offers-card-padding: 18px 20px 20px;
+  }
+
+  main .section:is(.offers, .featured-hotels) > .default-content-wrapper {
+    padding: 24px 24px 20px;
+  }
+
+  main .section:is(.offers, .featured-hotels) > .default-content-wrapper h2 {
+    font-size: 30px;
+  }
+
+  main .section:is(.offers, .featured-hotels) :is(.hero, .carousel-slide) > div:last-child {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+  }
+}
