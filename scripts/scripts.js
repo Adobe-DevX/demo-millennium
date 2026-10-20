@@ -141,6 +141,7 @@ export function decorateImageLinks(container) {
     const videoBlock = a.closest('.video');
     if (videoBlock && videoBlock.querySelector('a[href]') === a) return;
 
+
     const text = a.textContent.trim();
     const isUrlLabel = !text || text === href || /^https?:\/\//i.test(text);
     // Universal Editor labels an image reference with its alt text, so a label is kept
