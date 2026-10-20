@@ -9,13 +9,22 @@
   margin: 0;
 }
 
+.newsletter h2 {
+  margin: 0 0 14px;
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 17px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 .newsletter .newsletter-title {
   margin-bottom: 14px;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-.newsletter > div:first-child .newsletter-title + p {
+.newsletter > div:first-child p:last-child {
   margin-bottom: 26px;
 }
 
